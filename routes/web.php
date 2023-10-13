@@ -16,14 +16,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('event', EventController::class )
-    ->only(['store']);
-
-//Route::post('/event', EventCreateService::class );
-//Route::post('/event', [ EventController::class , 'store' ] )
-////    ->middleware(null )
-////    ->only(['store'])
-//;
 
 Route::get('/', function () {
     return view('welcome');

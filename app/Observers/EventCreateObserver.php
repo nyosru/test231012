@@ -11,7 +11,5 @@ class EventCreateObserver
     public function saving(Event $event)
     {
         [$event->period, $event->period_type] = EventCalculateDateService::calculate($event->date);
-        $res = $event->toArray();
-        dd($res);
     }
 }

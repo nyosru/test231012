@@ -16,11 +16,11 @@ class EventCalculateDateService extends Controller
         $interval = $now->diff($date); // получаем разницу в виде объекта DateInterval
 
         if ($interval->y > 0) {
-            $res = [$interval->y, 'Лет'];
+            $res = [$interval->y, 'год'];
         } else if ($interval->m > 0) {
-            $res = [$interval->m, 'Месяцев'];
+            $res = [$interval->m, 'месяц'];
         } else if ($interval->d > 0) {
-            $res = [$interval->d, 'Дней'];
+            $res = [$interval->d, 'день'];
         } else {
             throw new \Exception('date diff no', 1);
         }

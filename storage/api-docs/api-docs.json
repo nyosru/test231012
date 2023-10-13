@@ -1,0 +1,144 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "OpenApi Documentation",
+        "description": "Документация для микро сервиса",
+        "contact": {
+            "email": "no-reply@php-cat.com"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost",
+            "description": "Дев площадка API"
+        },
+        {
+            "url": "http://test231012.php-cat.com",
+            "description": "Основной API"
+        },
+        {
+            "url": "http://test231012.php-cat.com",
+            "description": "Для Логирования"
+        }
+    ],
+    "paths": {
+        "/api/event": {
+            "post": {
+                "tags": [
+                    "Event"
+                ],
+                "summary": "Добавление события",
+                "description": "Метод добавляет новое событие",
+                "operationId": "addEvent",
+                "parameters": [
+                    {
+                        "name": "title",
+                        "in": "query",
+                        "description": "Имя события",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "place",
+                        "in": "query",
+                        "description": "место проведения мероприятия",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "description": "дата проведения мероприятия",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Event"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Event": {
+                "title": "Event",
+                "description": "Event model",
+                "properties": {
+                    "id": {
+                        "title": "id",
+                        "description": "ID",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "name": {
+                        "title": "Name",
+                        "description": "Название события",
+                        "type": "string",
+                        "example": "aaaaa"
+                    },
+                    "date": {
+                        "title": "date",
+                        "description": "Date event",
+                        "type": "string",
+                        "format": "date",
+                        "example": "2020-01-27"
+                    },
+                    "period": {
+                        "title": "period",
+                        "description": "period",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "period_type": {
+                        "title": "period_type",
+                        "description": "тип периода",
+                        "type": "string",
+                        "format": "string",
+                        "example": "день"
+                    },
+                    "created_at": {
+                        "title": "Created at",
+                        "description": "Created at",
+                        "type": "string",
+                        "format": "datetime",
+                        "example": "2020-01-27 17:50:45"
+                    },
+                    "updated_at": {
+                        "title": "Updated at",
+                        "description": "Updated at",
+                        "type": "string",
+                        "format": "datetime",
+                        "example": "2020-01-27 17:50:45"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "Event"
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Channels",
+            "description": "Работа с каналами"
+        }
+    ]
+}
