@@ -17,6 +17,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+Route::get('/222', function () {
+//    dd([11]);
+});
+
 Route::get('/', function () {
+//    dd([11]);
     return view('welcome');
 });
