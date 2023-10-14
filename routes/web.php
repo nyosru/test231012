@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\PageController as PageControllerAlias;
 use App\Http\Controllers\Service\EventCreateService;
 use Illuminate\Support\Facades\Route;
 
@@ -17,11 +18,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/222', function () {
-//    dd([11]);
-});
+//Route::get('/222', function () {
+////    dd([11]);
+//});
 
-Route::get('/', function () {
-//    dd([11]);
-    return view('welcome');
-});
+Route::get('/', [PageControllerAlias::class, 'index']);
+//Route::get('/', function () {
+////    dd([11]);
+//    return view('welcome');
+//});
