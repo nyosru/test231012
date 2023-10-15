@@ -14,15 +14,23 @@
 </head>
 <body class="antialiased px-5">
 
-<h2 class="text-xl">Ссылка на гит этого теста</h2>
+<h2 class="text-xl">Ссылки этого тест задания</h2>
 
 <p>
-<A class="text-blue-800 underline" href="{{ $link }}" target="_blank">{{ $link }}</A>
+<ol style="list-style: decimal;">
+    @foreach( $link as $k => $v )
+        <li>
+            <A class="" href="{{ $v }}" target="_blank">{{ $k }}</A><br/>
+            <A class="text-blue-800 underline" href="{{ $v }}" target="_blank">{{ $v }}</A>
+        </li>
+    @endforeach
+</ol>
+{{--<A class="text-blue-800 underline" href="{{ $link }}" target="_blank">{{ $link }}</A>--}}
 </p>
 <br/>
 <hr>
 <br/>
-<h2 class="text-xl">Файлик ридми, задание + расклад что да как делал</h2>
+<h2 class="text-xl">Файлик ридми ( задание + расклад что да как делал )</h2>
 
 {!! $readme !!}
 

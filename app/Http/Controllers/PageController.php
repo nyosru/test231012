@@ -13,7 +13,10 @@ class PageController extends Controller
     {
         $data = file_get_contents($_SERVER['DOCUMENT_ROOT'].'/../README.md');
         $in = [
-            'link' => 'https://github.com/nyosru/test231012',
+            'link' => [
+                'github' => 'https://github.com/nyosru/test231012',
+                'swager ( описание и тесты апи )' => 'https://test231012.php-cat.com/api/documentation#/'
+        ],
             'readme' => nl2br($data)
         ];
         return view('welcome',$in);

@@ -6,11 +6,22 @@ use App\Http\Requests\EventCreateRequest;
 use App\Models\Event;
 use Illuminate\Http\Request;
 
+/**
+* @OA\Tag(
+ *     name="Event",
+ *     description="Работа с 'событиями'"
+    * )
+*/
+
 class EventController extends Controller
 {
 
+    public function index( Request $request )
+    {
+        
+    }
 
-    /**
+        /**
      * @OA\Post(
      *      path="/api/event",
      *      operationId="addEvent",

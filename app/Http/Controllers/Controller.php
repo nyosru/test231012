@@ -25,16 +25,12 @@ use Illuminate\Routing\Controller as BaseController;
  *      url=L5_SWAGGER_CONST_HOST,
  *      description="Основной API"
  * )
- * @OA\Server(
- *      url=L5_SWAGGER_CONST_HOST_V2,
- *      description="Для Логирования"
- * )
  *
- * @OA\Tag(
- *     name="Channels",
- *     description="Работа с каналами"
- * )
  */
+//* @OA\Tag(
+// *     name="Channels",
+// *     description="Работа с каналами"
+//    * )
 
 class Controller extends BaseController
 {

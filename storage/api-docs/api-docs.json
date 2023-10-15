@@ -10,16 +10,12 @@
     },
     "servers": [
         {
-            "url": "http://localhost",
+            "url": "https://test231012.local",
             "description": "Дев площадка API"
         },
         {
             "url": "http://test231012.php-cat.com",
             "description": "Основной API"
-        },
-        {
-            "url": "http://test231012.php-cat.com",
-            "description": "Для Логирования"
         }
     ],
     "paths": {
@@ -137,8 +133,8 @@
     },
     "tags": [
         {
-            "name": "Channels",
-            "description": "Работа с каналами"
+            "name": "Event",
+            "description": "Работа с 'событиями' EventController"
         }
     ]
 }
