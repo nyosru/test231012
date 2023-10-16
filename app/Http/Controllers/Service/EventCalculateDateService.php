@@ -14,13 +14,15 @@ class EventCalculateDateService extends Controller
         $now = new \DateTime(); // текущее время на сервере
         $date = \DateTime::createFromFormat("d-m-Y", $date); // задаем дату в любом формате
         $interval = $now->diff($date); // получаем разницу в виде объекта DateInterval
+        // дата до или после текущей даты
+        $znak = ($date < $now) ? -1: 1;
 
         if ($interval->y > 0) {
-            $res = [$interval->y, 'год'];
+            $res = [$interval->y * $znak, 'год'];
         } else if ($interval->m > 0) {
-            $res = [$interval->m, 'месяц'];
+            $res = [$interval->m * $znak, 'месяц'];
         } else if ($interval->d > 0) {
-            $res = [$interval->d, 'день'];
+            $res = [$interval->d * $znak, 'день'];
         } else {
             throw new \Exception('date diff no', 1);
         }

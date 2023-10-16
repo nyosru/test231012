@@ -12,6 +12,7 @@ class EventCreateObserver
     public function saving(Event $event)
     {
         [$event->period, $event->period_type] = EventCalculateDateService::calculate($event->date);
+
         // ложим в кеш на 5 минут
 //        Cache::tags(['event'])->put('events', $event, 300);
         $data = (array) $event->toArray();
