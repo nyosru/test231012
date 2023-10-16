@@ -42,7 +42,7 @@ class EventController extends Controller
      *      path="/api/event2",
      *      operationId="eventGet2",
      *      tags={"Event"},
-     *      summary="получение списка событий",
+     *      summary="получение списка событий (с прогревом кеша)",
      *      description="3) при получении как в норм приложении ( get index2 ) получаю данные, кеш на автомате прогревается если кончилось время хранения",
      *     @OA\Response(
      *          response=200,
