@@ -53,12 +53,26 @@ class EventController extends Controller
      */
     public function index2(Request $request)
     {
+        $value = $this->eventGet();
+        return EventResource::collection($value);
+    }
 
+    /**
+     * получение данных с прогревом кеша
+     * @param $refresh принудительно забыть что есть в кеше
+     * @return array
+     */
+    public function eventGet($refresh = false)
+    {
+        // забываем что есть в кеше
+        if ($refresh)
+            Cache::forget('event');
+
+        // получаем из кеша и бд если кеш пустой
         $value = Cache::remember('event', 300, function () {
             return Event::all();
         });
-
-        return EventResource::collection($value);
+        return $value;
     }
 
     /**
@@ -108,6 +122,9 @@ class EventController extends Controller
         $validated['name'] = $request->title . ' ' . $request->place;
         $new = new Event($validated);
         $event_new = $new->save();
+
+        $this->eventGet(true);
+
         return response()->json($new);
     }
 
