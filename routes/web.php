@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Route;
 //});
 
 Route::get('/', [PageControllerAlias::class, 'index']);
+//Route::get('/', [PageControllerAlias::class, 'index']);
 //Route::get('/', function () {
 ////    dd([11]);
 //    return view('welcome');

@@ -3,25 +3,65 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\EventCreateRequest;
+use App\Http\Resources\EventResource;
 use App\Models\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 /**
-* @OA\Tag(
+ * @OA\Tag(
  *     name="Event",
  *     description="Работа с 'событиями'"
-    * )
-*/
-
+ * )
+ */
 class EventController extends Controller
 {
 
-    public function index( Request $request )
+    /**
+     * @OA\Get(
+     *      path="/api/event",
+     *      operationId="eventGet",
+     *      tags={"Event"},
+     *      summary="получение списка событий в кеше",
+     *      description="Возвращает список событий из кеша ( 2) при получении списка ( get index ) записей вывожу только то что в кеше )",
+     *     @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *          @OA\JsonContent(ref="#/components/schemas/Event")
+     *       ),
+     *     )
+     */
+    public function index(Request $request)
     {
-        
+        $data = Cache::get('event') ?? [];
+        return EventResource::collection($data);
     }
 
-        /**
+    /**
+     * @OA\Get(
+     *      path="/api/event2",
+     *      operationId="eventGet2",
+     *      tags={"Event"},
+     *      summary="получение списка событий",
+     *      description="3) при получении как в норм приложении ( get index2 ) получаю данные, кеш на автомате прогревается если кончилось время хранения",
+     *     @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *          @OA\JsonContent(ref="#/components/schemas/Event")
+     *       ),
+     *     )
+     */
+    public function index2(Request $request)
+    {
+
+        $value = Cache::remember('event', 300, function () {
+            return Event::all();
+        });
+
+        return EventResource::collection($value);
+    }
+
+    /**
      * @OA\Post(
      *      path="/api/event",
      *      operationId="addEvent",

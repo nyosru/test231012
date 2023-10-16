@@ -20,5 +20,6 @@ use Illuminate\Support\Facades\Route;
 //    return $request->user();
 //});
 
-Route::resource('event', EventController::class )
-    ->only(['store']);
+Route::resource('event', EventController::class)
+    ->only(['index', 'store']);
+Route::get('event2', [EventController::class, 'index2']);

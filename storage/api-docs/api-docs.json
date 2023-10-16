@@ -20,6 +20,26 @@
     ],
     "paths": {
         "/api/event": {
+            "get": {
+                "tags": [
+                    "Event"
+                ],
+                "summary": "получение списка событий в кеше",
+                "description": "Возвращает список событий из кеша ( 2) при получении списка ( get index ) записей вывожу только то что в кеше )",
+                "operationId": "eventGet",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Event"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "post": {
                 "tags": [
                     "Event"
@@ -56,6 +76,28 @@
                         }
                     }
                 ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Event"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/event2": {
+            "get": {
+                "tags": [
+                    "Event"
+                ],
+                "summary": "получение списка событий",
+                "description": "3) при получении как в норм приложении ( get index2 ) получаю данные, кеш на автомате прогревается если кончилось время хранения",
+                "operationId": "eventGet2",
                 "responses": {
                     "200": {
                         "description": "Successful operation",
@@ -134,7 +176,7 @@
     "tags": [
         {
             "name": "Event",
-            "description": "Работа с 'событиями' EventController"
+            "description": "Работа с 'событиями'"
         }
     ]
 }
