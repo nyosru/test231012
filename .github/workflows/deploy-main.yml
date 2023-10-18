@@ -27,6 +27,7 @@ jobs:
             cd ${{ env.DIR }}
             git fetch --all
             git reset --hard ${{ env.GIT_BRANCH }}
+            php artisan l5-swagger:generate
 
 
   # deploy_composer_stop:
