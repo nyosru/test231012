@@ -6,7 +6,6 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 
-
 /**
  * @OA\Info(
  *      version="1.0.0",
@@ -31,6 +30,8 @@ use Illuminate\Routing\Controller as BaseController;
 // *     name="Channels",
 // *     description="Работа с каналами"
 //    * )
+
+
 
 class Controller extends BaseController
 {
