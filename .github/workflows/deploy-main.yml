@@ -27,7 +27,7 @@ jobs:
             cd ${{ env.DIR }}
             git fetch --all
             git reset --hard ${{ env.GIT_BRANCH }}
-            docker exec test231012 docker exec -it test231012  php artisan l5-swagger:generate
+            docker exec test231012 php artisan l5-swagger:generate
 
 
   # deploy_composer_stop:
