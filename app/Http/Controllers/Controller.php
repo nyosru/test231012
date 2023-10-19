@@ -17,13 +17,13 @@ use Illuminate\Routing\Controller as BaseController;
  * )
  *
  * @OA\Server(
- *       url=L5_SWAGGER_CONST_HOST_LOCAL,
- *       description="Дев площадка API"
+ *       url=L5_SWAGGER_CONST_HOST,
+ *       description="Основной API"
  *  )
  * @OA\Server(
- *      url=L5_SWAGGER_CONST_HOST,
- *      description="Основной API"
- * )
+ *       url=L5_SWAGGER_CONST_HOST_LOCAL,
+ *       description="локальная Дев площадка API"
+ *  )
  *
  */
 //* @OA\Tag(
